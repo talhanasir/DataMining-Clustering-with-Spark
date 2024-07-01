@@ -1,0 +1,78 @@
+data = spark.read.format("libsvm").load("/user/data/CSC533DM/sample_kmeans_data.txt")
+data.show(truncate=False)
+from pyspark.ml.clustering import KMeans
+kmeans = KMeans().setK(2).setSeed(1)
+model = kmeans.fit(data)
+predictions = model.transform(data)
+predictions.show(truncate=False)
+from pyspark.ml.evaluation import ClusteringEvaluator
+evaluator = ClusteringEvaluator()
+silhouette = evaluator.evaluate(predictions)
+print("Silhouette with squared euclidean distance = " + str(silhouette))
+centers = model.clusterCenters()
+print("Cluster Centers: ")
+for center in centers: print(center)
+
+
+
+from pyspark.ml.clustering import KMeans
+kmeans = KMeans().setK(3).setSeed(1)
+model = kmeans.fit(data)
+predictions = model.transform(data)
+predictions.show(truncate=False)
+
+from pyspark.ml.evaluation import ClusteringEvaluator
+evaluator = ClusteringEvaluator()
+silhouette = evaluator.evaluate(predictions)
+print("Silhouette with squared euclidean distance = " + str(silhouette))
+centers = model.clusterCenters()
+print("Cluster Centers: ")
+for center in centers: print(center)
+
+
+
+from pyspark.ml.clustering import KMeans
+kmeans = KMeans().setK(4).setSeed(1)
+model = kmeans.fit(data)
+predictions = model.transform(data)
+predictions.show(truncate=False)
+
+from pyspark.ml.evaluation import ClusteringEvaluator
+evaluator = ClusteringEvaluator()
+silhouette = evaluator.evaluate(predictions)
+print("Silhouette with squared euclidean distance = " + str(silhouette))
+centers = model.clusterCenters()
+print("Cluster Centers: ")
+for center in centers: print(center)
+
+
+
+from pyspark.ml.clustering import KMeans
+kmeans = KMeans().setK(5).setSeed(1)
+model = kmeans.fit(data)
+predictions = model.transform(data)
+predictions.show(truncate=False)
+
+from pyspark.ml.evaluation import ClusteringEvaluator
+evaluator = ClusteringEvaluator()
+silhouette = evaluator.evaluate(predictions)
+print("Silhouette with squared euclidean distance = " + str(silhouette))
+centers = model.clusterCenters()
+print("Cluster Centers: ")
+for center in centers: print(center)
+
+
+
+from pyspark.ml.clustering import KMeans
+kmeans = KMeans().setK(6).setSeed(1)
+model = kmeans.fit(data)
+predictions = model.transform(data)
+predictions.show(truncate=False)
+
+from pyspark.ml.evaluation import ClusteringEvaluator
+evaluator = ClusteringEvaluator()
+silhouette = evaluator.evaluate(predictions)
+print("Silhouette with squared euclidean distance = " + str(silhouette))
+centers = model.clusterCenters()
+print("Cluster Centers: ")
+for center in centers: print(center)
